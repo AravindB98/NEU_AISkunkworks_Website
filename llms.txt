@@ -1,0 +1,47 @@
+# AI Skunkworks (Northeastern University)
+
+> AI Skunkworks is a student-led AI research and build group at Northeastern University in Boston, Massachusetts. It was founded in 2019 under faculty advisor Prof. Nik Bear Brown, was quiet from 2022 to 2024, and was officially revived on January 6, 2026. It is affiliated with Humanitarians AI, a 501(c)(3) nonprofit. Membership is open to anyone at Northeastern willing to do the work.
+
+Also known as: AISkunks, NEU AI Skunkworks, Northeastern AI Skunkworks.
+
+## Key facts
+
+- Type: Graduate student research group (student organization)
+- University: Northeastern University, Boston, MA, USA
+- Founded: 2019; revived January 6, 2026
+- Faculty advisor: Prof. Nik Bear Brown (Ph.D. Computer Science, UCLA)
+- Leadership (2026): Gnana Shishir Kumar (President), Aravind Balaji (VP Research & Development), Jaisukh (Treasurer)
+- Contact: aiskunkworks@northeastern.edu
+- Affiliations and collaborators: Humanitarians AI, Massachusetts AI Hub, The Open Accelerator (Red Hat, IBM, MA AI Hub), Khoury College of Computer Sciences, Northeastern AI Initiative
+- Research collaborations: Mass General (clinical decision-making, causal inference), Harvard Medical School and Boston Children's Hospital (computational biology)
+
+## Research divisions
+
+- Causal Inference (flagship): counterfactuals, do-calculus, DAGs; clinical collaboration with Mass General
+- Explainable AI: SHAP, LIME, integrated gradients, model audits; a past project was deployed at Squark.ai
+- Visual Analytics: interactive visualization tools for understanding models
+- ML Observability: drift detection, calibration audits, fairness monitoring
+- Kaggle Group: competition machine learning, currently RSNA Pulmonary Embolism Detection
+- Gauguin: generative art and aesthetic evaluation research
+
+## Activities
+
+Hackathons (two major per year), a speaker series, workshops, weekly reading groups, open-mic lightning talks, and partner events such as Boston Tech Week with the Massachusetts AI Hub.
+
+## Pages
+
+- [Home](https://aravindb98.github.io/NEU_AISkunkworks_Website/): overview, operating model, featured projects
+- [Projects](https://aravindb98.github.io/NEU_AISkunkworks_Website/projects.html): research divisions and active projects
+- [Manifesto](https://aravindb98.github.io/NEU_AISkunkworks_Website/manifesto.html): mission and operating tenets
+- [Crew](https://aravindb98.github.io/NEU_AISkunkworks_Website/people.html): team, history, partners, contact
+- [Events](https://aravindb98.github.io/NEU_AISkunkworks_Website/events.html): upcoming and past events, intake
+
+## Links
+
+- Join: https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=gcLuqKOqrk2sm5o5i5IV5z3UtEad7LFKuTRbSEyY4zhUOFpUSFE5M0QzMUg0RDExRElSMlpEMUxLSC4u
+- LinkedIn: https://www.linkedin.com/company/aiskunkworks/
+- GitHub: https://github.com/skunkworksneu
+- Substack: https://aiskunkworks.substack.com
+- Instagram: https://instagram.com/aiskunkworks
+- Discord: https://discord.gg/PGebZX3xU
+- Earlier sites: https://neu-ai-skunkworks.github.io, https://alskunks.sites.northeastern.edu

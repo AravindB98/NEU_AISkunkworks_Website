@@ -142,6 +142,25 @@ If JavaScript is disabled, a plain-text fallback tells visitors to email the uni
 - [`scripts/main.js`](scripts/main.js): mobile hamburger menu, cohort timeline "Expand all / Collapse all", the command tenure pills on the crew page, and the theme toggle.
 - [`scripts/events.js`](scripts/events.js): blur-lock reveal buttons on event cards, with `aria-expanded` kept in sync.
 
+### Search and AI discoverability
+
+The site is built to be found by search engines and to be quoted accurately by AI assistants (ChatGPT, Perplexity, Claude, Google AI Overviews, Copilot).
+
+| What | Where | Why it matters |
+|---|---|---|
+| Keyword-led titles and meta descriptions | `<head>` of every page, inside `<!-- SEO -->` | Controls the headline and snippet shown in search results |
+| Canonical URLs | `<link rel="canonical">` on every page | Tells search engines which address is the official one |
+| Open Graph and Twitter cards | Every page, with [`assets/og-image.png`](assets/og-image.png) | Rich link previews on LinkedIn, Discord, Slack, X and iMessage |
+| Structured data (JSON-LD) | Every page | Describes the group as an `Organization` belonging to Northeastern University, with founding year, advisor, contact, social profiles and team; adds breadcrumbs on inner pages |
+| `sitemap.xml` | Repository root | Lists every page for Google Search Console and Bing Webmaster Tools |
+| `robots.txt` | Repository root | Allows all crawlers, including AI crawlers, and points to the sitemap |
+| `llms.txt` | Repository root | A plain-language fact sheet written for large language models |
+| `404.html` | Repository root | Branded "page not found" that routes visitors back into the site |
+
+**When content changes**, update the matching description in the page's `<!-- SEO -->` block and bump `<lastmod>` in `sitemap.xml`. Team changes also go in the `Person` entries of `people.html` and in `llms.txt`.
+
+**If the site moves to a custom domain**, search and replace `https://aravindb98.github.io/NEU_AISkunkworks_Website/` across the repository, and change the `<base href>` in `404.html` to `/`. Note that `robots.txt` and `llms.txt` only take effect at the root of a domain, so they become fully active once the site is on its own domain or on `skunkworksneu.github.io`.
+
 ---
 
 ## Project structure
@@ -153,7 +172,12 @@ If JavaScript is disabled, a plain-text fallback tells visitors to email the uni
 ├── manifesto.html        # § 02 Charter document
 ├── people.html           # § 03 Crew and institutional dossier
 ├── events.html           # § 04 Field operations and intake terminal
+├── 404.html              # Branded not-found page
+├── sitemap.xml           # Page list for search engines
+├── robots.txt            # Crawler rules (all allowed)
+├── llms.txt              # Fact sheet for AI assistants
 ├── assets/
+│   ├── og-image.png      # 1200×630 social preview image
 │   ├── favicon.png
 │   ├── skunkworks-logo.jpg
 │   └── skunkworksneu_logo.jpg
