@@ -28,12 +28,12 @@
     <link rel="stylesheet" href="styles/components.css" />
     <link rel="stylesheet" href="styles/layout.css" />
     <style>
-      .nf { min-height: 100vh; display: grid; place-items: center; padding: var(--space-xl) var(--space-md); text-align: center; }
+      .nf { position: relative; z-index: var(--z-content); min-height: 100vh; display: grid; place-items: center; padding: var(--space-xl) var(--space-md); text-align: center; }
       .nf__code { font-size: clamp(4rem, 14vw, 9rem); font-weight: 700; line-height: 1; color: var(--accent); margin: 0; }
       .nf__label { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--text-xs); color: var(--ink-dim); margin: var(--space-sm) 0; }
       .nf__body { max-width: 36rem; margin: 0 auto var(--space-lg); font-size: var(--text-base); }
       .nf__links { display: flex; flex-wrap: wrap; gap: var(--space-sm); justify-content: center; }
-      .nf img { border-radius: 50%; margin-bottom: var(--space-md); }
+      .nf img { margin-left: auto; margin-right: auto; border-radius: 50%; margin-bottom: var(--space-md); }
     </style>
   </head>
   <body>
