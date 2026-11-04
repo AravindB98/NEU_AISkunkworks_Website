@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Events — AI Skunkworks</title>
+    <meta name="theme-color" content="#c8102e" />
+    <script>
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem("skunkworks-theme"); } catch (e) {}
+        if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.dataset.theme = t;
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/favicon.png" />
+    <link rel="stylesheet" href="styles/tokens.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/pages-events.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-sticky-nav">
+        <div class="site-sticky-nav__inner">
+          <div class="site-sticky-nav__brand-group">
+          <a class="site-sticky-nav__brand" href="index.html">
+            <img class="brand-logo" src="assets/skunkworksneu_logo.jpg" alt="AI Skunkworks home" width="36" height="36" />
+            </a>
+            <svg class="skunk" viewBox="0 0 140 36" aria-hidden="true" focusable="false">
+            <g class="skunk__ground">
+              <path class="skunk__trace" d="M0 34.5 H140" />
+              <circle class="skunk__via" cx="2" cy="34.5" r="1.4" />
+              <circle class="skunk__via" cx="138" cy="34.5" r="1.4" />
+              <path class="skunk__packet" d="M0 34.5 H10" />
+            </g>
+            <g class="skunk__mover">
+              <g class="skunk__face">
+                <!-- RUN POSE -->
+                <g class="skunk__run">
+                  <g class="skunk__bits">
+                    <rect x="1" y="27" width="2" height="2" />
+                    <rect x="-3" y="30" width="1.6" height="1.6" />
+                    <rect x="4" y="31" width="1.4" height="1.4" />
+                  </g>
+                  <g class="skunk__tail skunk__tail--run">
+                    <path class="skunk__fur" d="M15 20 C8 20 3 15 3.5 9 C4 3.5 9.5 1 14 3 C10 5 8.5 9 10.5 13 C12 16 14.5 17.5 17 18.5 Z" />
+                    <path class="skunk__stripe" d="M12.5 4.2 C9.5 7 9.4 11 11.8 14.6" />
+                    <path class="skunk__circuit" d="M5.5 9 H8 L9.2 11" />
+                    <circle class="skunk__node" cx="5.5" cy="9" r="0.9" />
+                    <circle class="skunk__node" cx="7" cy="5" r="0.8" />
+                  </g>
+                  <g class="skunk__legs-back">
+                    <path class="skunk__leg skunk__leg--a" d="M16.5 25 V32.5" />
+                    <path class="skunk__leg skunk__leg--b" d="M19.5 25.5 V32.5" />
+                  </g>
+                  <g class="skunk__legs-front">
+                    <path class="skunk__leg skunk__leg--b" d="M27 25.5 V32.5" />
+                    <path class="skunk__leg skunk__leg--a" d="M30 25 V32.5" />
+                  </g>
+                  <g class="skunk__bob">
+                    <ellipse class="skunk__fur" cx="23" cy="22" rx="10.5" ry="6" />
+                    <circle class="skunk__fur" cx="34" cy="18.5" r="5" />
+                    <ellipse class="skunk__fur" cx="38.6" cy="20.6" rx="3.6" ry="2.3" />
+                    <path class="skunk__fur" d="M30.5 14.6 L31.4 10.2 L34 14 Z" />
+                    <path class="skunk__stripe" d="M35.6 16 C30 16.4 24 17.4 15.2 20.2" />
+                    <path class="skunk__antenna" d="M32 13.8 L29.4 7.6" />
+                    <circle class="skunk__led" cx="29.2" cy="7.2" r="1.4" />
+                    <circle class="skunk__eye" cx="35.4" cy="17.6" r="1.15" />
+                    <circle class="skunk__nose" cx="41.9" cy="20.4" r="1.05" />
+                  </g>
+                </g>
+                <!-- SIT POSE -->
+                <g class="skunk__sit">
+                  <g class="skunk__tail skunk__tail--sit">
+                    <path class="skunk__fur" d="M16 32 C8 31 4.5 23 5.5 15 C6.5 7 12 2.5 18 4 C13.5 6.5 11.5 11.5 12.5 18 C13.5 24 16.5 28 20 30 Z" />
+                    <path class="skunk__stripe" d="M16.6 5 C12.5 8.5 11.2 14 12.6 20" />
+                    <path class="skunk__circuit" d="M7.5 15 H10 L11 17.5" />
+                    <path class="skunk__circuit" d="M8.5 22 H11" />
+                    <circle class="skunk__node" cx="7.5" cy="15" r="0.9" />
+                    <circle class="skunk__node" cx="8.5" cy="22" r="0.9" />
+                  </g>
+                  <ellipse class="skunk__fur" cx="19.5" cy="30" rx="6.5" ry="3.6" />
+                  <ellipse class="skunk__fur" cx="22" cy="24" rx="6.8" ry="8.5" />
+                  <path class="skunk__leg" d="M24.5 26 V33" />
+                  <path class="skunk__leg" d="M27.2 26 V33" />
+                  <g class="skunk__head">
+                    <circle class="skunk__fur" cx="26" cy="13" r="5" />
+                    <ellipse class="skunk__fur" cx="30.6" cy="14.8" rx="3.4" ry="2.2" />
+                    <path class="skunk__fur" d="M22.4 9.4 L23.2 5 L26 8.6 Z" />
+                    <path class="skunk__stripe" d="M28.6 9.4 C24.5 8.6 20.5 12 18.4 19.5" />
+                    <path class="skunk__antenna" d="M24 8.4 L21.6 2.4" />
+                    <circle class="skunk__led" cx="21.4" cy="2.1" r="1.4" />
+                    <circle class="skunk__eye skunk__eye--blink" cx="27.6" cy="12.2" r="1.15" />
+                    <circle class="skunk__nose" cx="33.8" cy="14.6" r="1.05" />
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+            <a class="site-sticky-nav__brand site-sticky-nav__brand--text" href="index.html" tabindex="-1" aria-hidden="true">
+            <span class="site-sticky-nav__brand-text">
+              <span class="site-sticky-nav__brand-title">AI Skunkworks</span>
+              <span class="site-sticky-nav__brand-sub">Northeastern · est. 2019</span>
+            </span>
+          </a>
+          </div>
+          <nav class="site-sticky-nav__links" aria-label="Primary">
+            <a href="index.html">Index</a>
+            <a href="projects.html">Projects</a>
+            <a href="manifesto.html">Manifesto</a>
+            <a href="people.html">Crew</a>
+            <a href="events.html" aria-current="page">Events</a>
+          </nav>
+          <div class="site-sticky-nav__meta">
+            <a class="site-sticky-nav__join" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=gcLuqKOqrk2sm5o5i5IV5z3UtEad7LFKuTRbSEyY4zhUOFpUSFE5M0QzMUg0RDExRElSMlpEMUxLSC4u" target="_blank" rel="noopener noreferrer">Join us</a>
+            <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
+              <span class="theme-toggle__dial" aria-hidden="true"></span>
+              <span class="theme-toggle__text">Light</span>
+            </button>
+            <button
+              type="button"
+              class="site-sticky-nav__toggle"
+              aria-expanded="false"
+              aria-controls="site-mobile-menu"
+              aria-label="Open menu"
+            >
+              <span class="site-sticky-nav__toggle-bar" aria-hidden="true"></span>
+              <span class="site-sticky-nav__toggle-bar" aria-hidden="true"></span>
+              <span class="site-sticky-nav__toggle-bar" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </header>
+      <div id="site-mobile-menu" class="site-mobile-menu" hidden>
+        <button type="button" class="site-mobile-menu__close" aria-label="Close menu">×</button>
+        <nav class="site-mobile-menu__links" aria-label="Mobile primary">
+          <a href="index.html">Index</a>
+          <a href="projects.html">Projects</a>
+          <a href="manifesto.html">Manifesto</a>
+          <a href="people.html">Crew</a>
+          <a href="events.html" aria-current="page">Events</a>
+          <a class="site-mobile-menu__join" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=gcLuqKOqrk2sm5o5i5IV5z3UtEad7LFKuTRbSEyY4zhUOFpUSFE5M0QzMUg0RDExRElSMlpEMUxLSC4u" target="_blank" rel="noopener noreferrer">Join us ↗</a>
+        </nav>
+      </div>
+      <main class="site-main" id="main">
+        <header class="page-hero events-hero">
+          <p class="page-hero__label">§ 04 — Field Operations</p>
+          <h1><em>field</em> <span>operations</span></h1>
+          <p class="events-hero__lead">
+            Hackathons, speaker nights, workshops, hack-jams, and the occasional unscheduled all-nighter. Collaborative events with partner orgs and solo runs by the unit. Public log below — intake terminal at the bottom.
+          </p>
+        </header>
+
+        <section class="page-section" aria-labelledby="events-upcoming" id="upcoming">
+          <p class="page-section__label">§ 04.A — Upcoming Operations</p>
+          <h2 id="events-upcoming">On the schedule.</h2>
+          <p class="page-section__sub">Active intake. RSVP via Discord.</p>
+
+          <div class="upcoming-grid">
+            <article class="event-card" data-state="locked">
+              <div class="event-card__date">
+                <span class="event-card__date-num" style="font-style: italic; color: var(--ink-dim);">TBD</span>
+                <span class="event-card__date-meta">Fall 2026</span>
+              </div>
+              <div class="event-card__tag">HACKATHON · CAMPUS · COMET TRACK</div>
+              <h3 class="event-card__title">Northeastern Skunkworks Hackathon</h3>
+              <div class="event-card__body-wrap" id="evt-hack-2026-body">
+                <p class="event-card__body">48 hours. Multiple tracks including a dedicated agentic-browser track sponsored by Perplexity featuring Comet. Cross-tab research agents, productivity automation, and accessibility builds. Prizes, mentors, and the usual late-night pizza calculus. Open to all Northeastern students.</p>
+                <button class="event-card__reveal" type="button" aria-expanded="false" aria-controls="evt-hack-2026-body">
+                  <span class="event-card__lock-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <rect x="3" y="7" width="10" height="7" rx="1"/>
+                      <path d="M 5 7 V 5 a 3 3 0 0 1 6 0 V 7"/>
+                    </svg>
+                  </span>
+                  <span class="event-card__lock-text">Details soon — tap to peek</span>
+                </button>
+              </div>
+              <div class="event-card__footer">
+                <span class="event-card__location">ISEC · Northeastern</span>
+                <a class="event-card__rsvp" href="#intake-terminal">Notify me ↗</a>
+              </div>
+            </article>
+
+            <article class="event-card" data-state="locked">
+              <div class="event-card__date">
+                <span class="event-card__date-num" style="font-style: italic; color: var(--ink-dim);">TBD</span>
+                <span class="event-card__date-meta">Q3 2026</span>
+              </div>
+              <div class="event-card__tag">SOLO · SKUNKWORKS</div>
+              <h3 class="event-card__title">Speaker Night — frontier-lab researchers</h3>
+              <div class="event-card__body-wrap" id="evt-speaker-2026-body">
+                <p class="event-card__body">Quarterly speaker series. Bringing in researchers from frontier labs and adjacent institutions. Past speakers from Anthropic, MIT, Mass General, and Squark.ai. Date and lineup announced via Discord.</p>
+                <button class="event-card__reveal" type="button" aria-expanded="false" aria-controls="evt-speaker-2026-body">
+                  <span class="event-card__lock-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <rect x="3" y="7" width="10" height="7" rx="1"/>
+                      <path d="M 5 7 V 5 a 3 3 0 0 1 6 0 V 7"/>
+                    </svg>
+                  </span>
+                  <span class="event-card__lock-text">Details soon — tap to peek</span>
+                </button>
+              </div>
+              <div class="event-card__footer">
+                <span class="event-card__location">Format TBD</span>
+                <a class="event-card__rsvp" href="#intake-terminal">Subscribe ↗</a>
+              </div>
+            </article>
+
+            <article class="event-card" data-state="locked">
+              <div class="event-card__date">
+                <span class="event-card__date-num" style="font-style: italic; color: var(--ink-dim);">TBD</span>
+                <span class="event-card__date-meta">Q4 2026</span>
+              </div>
+              <div class="event-card__tag">COLLAB · PARTNER ORG</div>
+              <h3 class="event-card__title">Cross-org Hack-Jam</h3>
+              <div class="event-card__body-wrap" id="evt-collab-2026-body">
+                <p class="event-card__body">Joint build session with a partner organization. Active conversations include The Open Accelerator (Red Hat × IBM × MA AI Hub) and their hackathon series in Boston Seaport, plus other regional collaborators. Format TBD. Watch Discord for the date drop.</p>
+                <button class="event-card__reveal" type="button" aria-expanded="false" aria-controls="evt-collab-2026-body">
+                  <span class="event-card__lock-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <rect x="3" y="7" width="10" height="7" rx="1"/>
+                      <path d="M 5 7 V 5 a 3 3 0 0 1 6 0 V 7"/>
+                    </svg>
+                  </span>
+                  <span class="event-card__lock-text">Details soon — tap to peek</span>
+                </button>
+              </div>
+              <div class="event-card__footer">
+                <span class="event-card__location">TBD</span>
+                <a class="event-card__rsvp" href="#intake-terminal">Watch Discord ↗</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-section" aria-labelledby="events-recent" id="recent">
+          <p class="page-section__label">§ 04.B — Recent Operations</p>
+          <h2 id="events-recent">What we ran lately.</h2>
+
+          <div class="event-timeline">
+            <article class="event-log" data-state="locked">
+              <div class="event-log__date">
+                <span class="event-log__date-num">JUN / 2026</span>
+                <span class="event-log__date-tag">SOLO · SKUNKWORKS</span>
+                <span class="event-log__stat">details landing soon</span>
+              </div>
+              <div class="event-log__body-wrap" id="log-jun-2026-body">
+                <h3 class="event-log__title">Keeping it Cool</h3>
+                <p class="event-log__body">An AI Skunkworks original — format and specifics being locked in. A summer field operation that leans into what the unit does best: bring people into the room, give them a real problem, leave space for the bug to become the discovery. Theme, lineup, venue, and date drop together once the working group greenlights. Watch Discord.</p>
+                <div class="event-log__chips">
+                  <span class="event-log__chip">SKUNKWORKS ORIGINAL</span>
+                  <span class="event-log__chip">SUMMER OPS</span>
+                  <span class="event-log__chip">TBD</span>
+                </div>
+                <button class="event-log__reveal" type="button" aria-expanded="false" aria-controls="log-jun-2026-body">
+                  <span class="event-card__lock-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <rect x="3" y="7" width="10" height="7" rx="1"/>
+                      <path d="M 5 7 V 5 a 3 3 0 0 1 6 0 V 7"/>
+                    </svg>
+                  </span>
+                  <span class="event-card__lock-text">Locked — tap for what we can share</span>
+                </button>
+              </div>
+              <div class="event-log__footer">
+                <a class="event-card__rsvp" href="#intake-terminal">Get notified ↗</a>
+              </div>
+            </article>
+
+            <article class="event-log">
+              <div class="event-log__date">
+                <span class="event-log__date-num">MAY 27 / 2026</span>
+                <span class="event-log__date-tag">COLLAB · MA AI HUB · BOSTON TECH WEEK</span>
+                <span class="event-log__stat">12 skunks deployed</span>
+              </div>
+              <div class="event-log__body-wrap">
+                <h3 class="event-log__title">Boston Tech Week</h3>
+                <p class="event-log__body">Joint event with the Massachusetts AI Hub during Boston Tech Week. Skunks ran a demo and discussion table covering ongoing research from the Causal Inference and Explainable AI divisions, plus open-floor Q&amp;A on student-led AI research at Northeastern. First major public appearance for the revived unit.</p>
+                <div class="event-log__chips">
+                  <span class="event-log__chip">MA AI HUB</span>
+                  <span class="event-log__chip">BOSTON TECH WEEK</span>
+                  <span class="event-log__chip">DEMO + DISCUSSION</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="event-log">
+              <div class="event-log__date">
+                <span class="event-log__date-num">JAN 6 / 2026</span>
+                <span class="event-log__date-tag">SOLO · SKUNKWORKS</span>
+                <span class="event-log__stat">[N] skunks deployed</span>
+                <!-- TODO: confirm actual headcount from revival day -->
+              </div>
+              <div class="event-log__body-wrap">
+                <h3 class="event-log__title">Revival</h3>
+                <p class="event-log__body">The unit went operational again. New charter ratified, six divisions stood up, intake reopened, Discord pinged for the first time in two years. Affiliation with Humanitarians AI formalized as the institutional partner. The 2022–2024 quiet period ends here.</p>
+                <div class="event-log__chips">
+                  <span class="event-log__chip">REVIVAL</span>
+                  <span class="event-log__chip">CHARTER RATIFIED</span>
+                  <span class="event-log__chip">DIVISIONS ACTIVE</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-section" aria-labelledby="events-formats" id="formats">
+          <p class="page-section__label">§ 04.C — Standing Formats</p>
+          <h2 id="events-formats">What we run on rotation.</h2>
+
+          <div class="format-grid">
+            <article class="format-card">
+              <span class="format-card__num">FORMAT 01</span>
+              <h3 class="format-card__title">Hackathons</h3>
+              <p class="format-card__body">Two major hackathons per year plus smaller internal jams each semester. Sometimes with sponsors, sometimes purely internal.</p>
+            </article>
+            <article class="format-card">
+              <span class="format-card__num">FORMAT 02</span>
+              <h3 class="format-card__title">Speaker Series</h3>
+              <p class="format-card__body">Monthly talks from industry researchers, faculty, and frontier-lab alumni. Open to the broader Northeastern community.</p>
+            </article>
+            <article class="format-card">
+              <span class="format-card__num">FORMAT 03</span>
+              <h3 class="format-card__title">Open-Mic Nights</h3>
+              <p class="format-card__body">Five-minute lightning talks on whatever a skunk is currently obsessed with. Low stakes, high yield.</p>
+            </article>
+            <article class="format-card">
+              <span class="format-card__num">FORMAT 04</span>
+              <h3 class="format-card__title">Workshops</h3>
+              <p class="format-card__body">Hands-on technical workshops led by division members or invited mentors. Topics rotate with the divisions' current focus.</p>
+            </article>
+            <article class="format-card">
+              <span class="format-card__num">FORMAT 05</span>
+              <h3 class="format-card__title">Reading Groups</h3>
+              <p class="format-card__body">Each division runs a weekly paper-reading session. Open to drop-ins. Schedule lives in Discord.</p>
+            </article>
+            <article class="format-card">
+              <span class="format-card__num">FORMAT 06</span>
+              <h3 class="format-card__title">Partner Collabs</h3>
+              <p class="format-card__body">Joint events with the MA AI Hub, Boston Tech Week, Humanitarians AI, The Open Accelerator, and other regional partners. Format varies.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-section stay-loop" aria-labelledby="events-loop">
+          <p class="page-section__label">§ 04.D — Stay In The Loop</p>
+          <h2 id="events-loop">Get the next event before it fills up.</h2>
+          <p class="stay-loop__sub">Event announcements go to Discord first, then Substack, then everywhere else. RSVPs open ~2 weeks out. Use the intake terminal below to introduce yourself and get pinged.</p>
+        </section>
+
+        <!--
+          Part 5 — Submission wiring (see intake spec):
+          Option B: set SUBMISSION_ENDPOINT in scripts/intake.js to your Google Apps Script web app URL.
+          Option C (default): mailto fallback to aiskunkworks@northeastern.edu — zero backend.
+          Confirmation only on 2xx fetch responses; retry button on failure.
+        -->
+        <section
+          id="intake-terminal"
+          class="intake-terminal card"
+          aria-labelledby="intake-terminal-title"
+        >
+          <div class="intake-terminal__header">
+            <h2 id="intake-terminal-title" class="intake-terminal__title">Intake Terminal</h2>
+            <div
+              class="intake-terminal__progress-wrap"
+              role="progressbar"
+              aria-valuemin="1"
+              aria-valuemax="6"
+              aria-valuenow="1"
+              aria-label="Intake progress"
+            >
+              <div class="intake-terminal__progress-track">
+                <div id="intake-progress-bar" class="intake-terminal__progress-bar"></div>
+              </div>
+            </div>
+          </div>
+
+          <span id="intake-step-announcer" class="visually-hidden" aria-live="assertive"></span>
+
+          <noscript>
+            <p class="intake-terminal__noscript">
+              JavaScript is required for the conversational intake. Send us a note directly at
+              <a href="mailto:aiskunkworks@northeastern.edu">aiskunkworks@northeastern.edu</a>
+              with your name, project idea, and how to reach you.
+            </p>
+          </noscript>
+
+          <div
+            id="intake-log"
+            class="intake-terminal__log"
+            aria-live="polite"
+            aria-atomic="false"
+            role="log"
+            aria-label="Intake conversation"
+          ></div>
+
+          <div class="intake-terminal__controls">
+            <button
+              type="button"
+              id="intake-back"
+              class="btn intake-terminal__back"
+              aria-label="Go back to previous question"
+              hidden
+            >
+              ← Back
+            </button>
+            <div id="intake-input-host"></div>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <div class="site-footer__inner">
+          <div class="site-footer__grid">
+            <div class="site-footer__col site-footer__col--brand">
+              <div class="site-footer__brand">
+                <span class="brand-mark" aria-hidden="true"></span>
+                <div class="site-footer__brand-copy">
+                  <span class="site-footer__brand-name">AI Skunkworks</span>
+                  <p class="site-footer__tagline">Northeastern · est. 2019</p>
+                </div>
+              </div>
+            </div>
+            <div class="site-footer__col">
+              <h2 class="site-footer__col-title">Sections</h2>
+              <ul class="site-footer__list">
+                <li><a href="index.html">Index</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="manifesto.html">Manifesto</a></li>
+                <li>
+                  <a href="people.html">Crew</a>
+                  <ul class="site-footer__sublist">
+                    <li><a href="people.html#year-archives">Year archives</a></li>
+                    <li><a href="people.html#command">Team</a></li>
+                    <li><a href="people.html#partners">Partners</a></li>
+                    <li><a href="people.html#contact">Contact</a></li>
+                  </ul>
+                </li>
+                <li><a href="events.html">Events</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__col">
+              <h2 class="site-footer__col-title">Channels</h2>
+              <ul class="site-footer__list">
+                <li><a href="https://discord.gg/PGebZX3xU" target="_blank" rel="noopener noreferrer">Discord</a></li>
+                <li><a href="https://aiskunkworks.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></li>
+                <li><a href="https://www.linkedin.com/company/aiskunkworks/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="https://instagram.com/aiskunkworks" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://github.com/skunkworksneu" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__col">
+              <h2 class="site-footer__col-title">Contact</h2>
+              <ul class="site-footer__list">
+                <li><a href="mailto:aiskunkworks@northeastern.edu">aiskunkworks@northeastern.edu</a></li>
+                <li><a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=gcLuqKOqrk2sm5o5i5IV5z3UtEad7LFKuTRbSEyY4zhUOFpUSFE5M0QzMUg0RDExRElSMlpEMUxLSC4u" target="_blank" rel="noopener noreferrer">Membership form ↗</a></li>
+                <li><a href="events.html#intake-terminal">Intake terminal ↗</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__col">
+              <h2 class="site-footer__col-title">Legacy sites</h2>
+              <ul class="site-footer__list">
+                <li><a href="https://neu-ai-skunkworks.github.io" target="_blank" rel="noopener noreferrer">neu-ai-skunkworks.github.io</a></li>
+                <li><a href="https://alskunks.sites.northeastern.edu" target="_blank" rel="noopener noreferrer">alskunks.sites.northeastern.edu</a></li>
+                <li><a href="people.html#legacy-sites">About the archives</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="site-footer__strip">
+            <span>© 2026 AI Skunkworks · Northeastern</span>
+            <span>NO RIGHTS RESERVED · TRY TO COPY US</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/intake.js" defer></script>
+    <script src="scripts/events.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+/**
+ * AI Skunkworks — design tokens only
+ */
+
+:root {
+  /* Light theme: white paper, black ink, Northeastern red, signal yellow */
+  color-scheme: light;
+
+  /* Paper (surfaces) */
+  --paper: #ffffff;
+  --paper-2: #f6f5f4;
+  --paper-3: #ecebe9;
+  --paper-rgb: 255, 255, 255;
+
+  /* Ink (text) */
+  --ink: #000000;
+  --ink-dim: #545454;
+  --ink-faint: #a3a3a3;
+
+  /* Accent: red */
+  --accent: #c8102e;
+  --accent-dim: #eba3ae;
+  --accent-rgb: 200, 16, 46;
+
+  /* Signal: yellow (decorative fills, never text on white) */
+  --signal: #ffc72c;
+  --signal-ink: #000000;
+
+  /* Semantic */
+  --warn: #b8860b;
+  --classified: #c8102e;
+
+  /* Lines */
+  --line: rgba(0, 0, 0, 0.12);
+  --line-strong: rgba(0, 0, 0, 0.32);
+
+  /* Atmosphere (grid + glow) */
+  --grid-alpha: 0.045;
+  --glow: transparent;
+
+  /* Mascot */
+  --skunk-fur: #000000;
+  --skunk-stripe: #ffffff;
+  --skunk-halo: none;
+
+  /* Typography (Google Fonts loaded in HTML) */
+  --sans: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --code: "IBM Plex Mono", ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+  /* Legacy names kept so existing rules pick up the new faces */
+  --mono: var(--sans);
+  --serif: var(--sans);
+
+  /* Spacing scale */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4.5rem;
+
+  /* Type scale */
+  --text-xs: 0.875rem;
+  --text-sm: 1.0625rem;
+  --text-base: 1.125rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.5rem;
+  --text-xl: 2rem;
+  --text-2xl: 2.5rem;
+  --type-h1-hero: clamp(2.25rem, 5vw, 3.25rem);
+  --type-h2-section: 2.25rem; /* 28px — page-section heads */
+  --type-h3-card: 1.75rem; /* 28px — card titles (ops-grid 32 / layer 28 / division 24) */
+  --type-pullprose: clamp(1.5rem, 3vw, 2rem); /* 24–30px — premise, pullquotes */
+  --type-body-lg: 1.1875rem; /* 16px — long-form / CTA supporting copy */
+  --type-body: 1.0625rem; /* 13px — card & tenet body copy */
+  --type-mono-label: 0.8125rem; /* 10px — uppercase mono labels */
+
+  /* Muted ink (footer sub-links) */
+  --ink-mute: #767676;
+
+  /* Radii */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+
+  /* Layering */
+  --z-base: 0;
+  --z-grid: 0;
+  --z-noise: 1;
+  --z-scan: 2;
+  --z-content: 10;
+  --z-sticky-nav: 100;
+  --z-mobile-menu: 200;
+
+  /* Sticky chrome offset used by scroll-margin / floating UI */
+  --classification-banner-h: 0rem;
+}
+
+/* Dark theme: black, white ink, brighter red, yellow signal. Set by the theme toggle. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --paper: #000000;
+  --paper-2: #0d0d0d;
+  --paper-3: #181818;
+  --paper-rgb: 0, 0, 0;
+
+  --ink: #ffffff;
+  --ink-dim: #b0b0b0;
+  --ink-faint: #4a4a4a;
+  --ink-mute: #8a8a8a;
+
+  --accent: #ff3b4e;
+  --accent-dim: #8f1d2b;
+  --accent-rgb: 255, 59, 78;
+
+  --signal: #ffd23f;
+  --signal-ink: #000000;
+
+  --warn: #ffd23f;
+  --classified: #ff3b4e;
+  --line: rgba(255, 255, 255, 0.14);
+  --line-strong: rgba(255, 255, 255, 0.38);
+
+  --grid-alpha: 0.06;
+  --glow: rgba(255, 59, 78, 0.14);
+
+  --skunk-fur: #141414;
+  --skunk-stripe: #ffffff;
+  --skunk-halo: drop-shadow(0 0 0.6px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 2px rgba(255, 59, 78, 0.5));
+}

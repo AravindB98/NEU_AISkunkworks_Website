@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Charter — AI Skunkworks</title>
+    <meta
+      name="description"
+      content="The AI Skunkworks charter — eight operating tenets and six irreducibly human capacities. What the unit believes, and why."
+    />
+    <meta name="theme-color" content="#c8102e" />
+    <script>
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem("skunkworks-theme"); } catch (e) {}
+        if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.dataset.theme = t;
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/favicon.png" />
+    <link rel="stylesheet" href="styles/tokens.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/pages-manifesto.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-sticky-nav">
+        <div class="site-sticky-nav__inner">
+          <div class="site-sticky-nav__brand-group">
+          <a class="site-sticky-nav__brand" href="index.html">
+            <img class="brand-logo" src="assets/skunkworksneu_logo.jpg" alt="AI Skunkworks home" width="36" height="36" />
+            </a>
+            <svg class="skunk" viewBox="0 0 140 36" aria-hidden="true" focusable="false">
+            <g class="skunk__ground">
+              <path class="skunk__trace" d="M0 34.5 H140" />
+              <circle class="skunk__via" cx="2" cy="34.5" r="1.4" />
+              <circle class="skunk__via" cx="138" cy="34.5" r="1.4" />
+              <path class="skunk__packet" d="M0 34.5 H10" />
+            </g>
+            <g class="skunk__mover">
+              <g class="skunk__face">
+                <!-- RUN POSE -->
+                <g class="skunk__run">
+                  <g class="skunk__bits">
+                    <rect x="1" y="27" width="2" height="2" />
+                    <rect x="-3" y="30" width="1.6" height="1.6" />
+                    <rect x="4" y="31" width="1.4" height="1.4" />
+                  </g>
+                  <g class="skunk__tail skunk__tail--run">
+                    <path class="skunk__fur" d="M15 20 C8 20 3 15 3.5 9 C4 3.5 9.5 1 14 3 C10 5 8.5 9 10.5 13 C12 16 14.5 17.5 17 18.5 Z" />
+                    <path class="skunk__stripe" d="M12.5 4.2 C9.5 7 9.4 11 11.8 14.6" />
+                    <path class="skunk__circuit" d="M5.5 9 H8 L9.2 11" />
+                    <circle class="skunk__node" cx="5.5" cy="9" r="0.9" />
+                    <circle class="skunk__node" cx="7" cy="5" r="0.8" />
+                  </g>
+                  <g class="skunk__legs-back">
+                    <path class="skunk__leg skunk__leg--a" d="M16.5 25 V32.5" />
+                    <path class="skunk__leg skunk__leg--b" d="M19.5 25.5 V32.5" />
+                  </g>
+                  <g class="skunk__legs-front">
+                    <path class="skunk__leg skunk__leg--b" d="M27 25.5 V32.5" />
+                    <path class="skunk__leg skunk__leg--a" d="M30 25 V32.5" />
+                  </g>
+                  <g class="skunk__bob">
+                    <ellipse class="skunk__fur" cx="23" cy="22" rx="10.5" ry="6" />
+                    <circle class="skunk__fur" cx="34" cy="18.5" r="5" />
+                    <ellipse class="skunk__fur" cx="38.6" cy="20.6" rx="3.6" ry="2.3" />
+                    <path class="skunk__fur" d="M30.5 14.6 L31.4 10.2 L34 14 Z" />
+                    <path class="skunk__stripe" d="M35.6 16 C30 16.4 24 17.4 15.2 20.2" />
+                    <path class="skunk__antenna" d="M32 13.8 L29.4 7.6" />
+                    <circle class="skunk__led" cx="29.2" cy="7.2" r="1.4" />
+                    <circle class="skunk__eye" cx="35.4" cy="17.6" r="1.15" />
+                    <circle class="skunk__nose" cx="41.9" cy="20.4" r="1.05" />
+                  </g>
+                </g>
+                <!-- SIT POSE -->
+                <g class="skunk__sit">
+                  <g class="skunk__tail skunk__tail--sit">
+                    <path class="skunk__fur" d="M16 32 C8 31 4.5 23 5.5 15 C6.5 7 12 2.5 18 4 C13.5 6.5 11.5 11.5 12.5 18 C13.5 24 16.5 28 20 30 Z" />
+                    <path class="skunk__stripe" d="M16.6 5 C12.5 8.5 11.2 14 12.6 20" />
+                    <path class="skunk__circuit" d="M7.5 15 H10 L11 17.5" />
+                    <path class="skunk__circuit" d="M8.5 22 H11" />
+                    <circle class="skunk__node" cx="7.5" cy="15" r="0.9" />
+                    <circle class="skunk__node" cx="8.5" cy="22" r="0.9" />
+                  </g>
+                  <ellipse class="skunk__fur" cx="19.5" cy="30" rx="6.5" ry="3.6" />
+                  <ellipse class="skunk__fur" cx="22" cy="24" rx="6.8" ry="8.5" />
+                  <path class="skunk__leg" d="M24.5 26 V33" />
+                  <path class="skunk__leg" d="M27.2 26 V33" />
+                  <g class="skunk__head">
+                    <circle class="skunk__fur" cx="26" cy="13" r="5" />
+                    <ellipse class="skunk__fur" cx="30.6" cy="14.8" rx="3.4" ry="2.2" />
+                    <path class="skunk__fur" d="M22.4 9.4 L23.2 5 L26 8.6 Z" />
+                    <path class="skunk__stripe" d="M28.6 9.4 C24.5 8.6 20.5 12 18.4 19.5" />
+                    <path class="skunk__antenna" d="M24 8.4 L21.6 2.4" />
+                    <circle class="skunk__led" cx="21.4" cy="2.1" r="1.4" />
+                    <circle class="skunk__eye skunk__eye--blink" cx="27.6" cy="12.2" r="1.15" />
+                    <circle class="skunk__nose" cx="33.8" cy="14.6" r="1.05" />
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+            <a class="site-sticky-nav__brand site-sticky-nav__brand--text" href="index.html" tabindex="-1" aria-hidden="true">
+            <span class="site-sticky-nav__brand-text">
+              <span class="site-sticky-nav__brand-title">AI Skunkworks</span>
+              <span class="site-sticky-nav__brand-sub">Northeastern · est. 2019</span>
+            </span>
+          </a>
+          </div>
+          <nav class="site-sticky-nav__links" aria-label="Primary">
+            <a href="index.html">Index</a>
+            <a href="projects.html">Projects</a>
+            <a href="manifesto.html" aria-current="page">Manifesto</a>
+            <a href="people.html">Crew</a>
+            <a href="events.html">Events</a>
+          </nav>
+          <div class="site-sticky-nav__meta">
+            <a class="site-sticky-nav__join" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=gcLuqKOqrk2sm5o5i5IV5z3UtEad7LFKuTRbSEyY4zhUOFpUSFE5M0QzMUg0RDExRElSMlpEMUxLSC4u" target="_blank" rel="noopener noreferrer">Join us</a>
+            <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
+              <span class="theme-toggle__dial" aria-hidden="true"></span>
+              <span class="theme-toggle__text">Light</span>
+            </button>
+            <button
+              type="button"
+              class="site-sticky-nav__toggle"
+              aria-expanded="false"
+              aria-controls="site-mobile-menu"
+              aria-label="Open menu"
+            >
+              <span class="site-sticky-nav__toggle-bar" aria-hidden="true"></span>
+              <span class="site-sticky-nav__toggle-bar" aria-hidden="true"></span>
+              <span class="site-sticky-nav__toggle-bar" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </header>
+      <div id="site-mobile-menu" class="site-mobile-menu" hidden>
+        <button type="button" class="site-mobile-menu__close" aria-label="Close menu">×</button>
+        <nav class="site-mobile-menu__links" aria-label="Mobile primary">
+          <a href="index.html">Index</a>
+          <a href="projects.html">Projects</a>
+          <a href="manifesto.html" aria-current="page">Manifesto</a>
+          <a href="people.html">Crew</a>
+          <a href="events.html">Events</a>
+          <a class="site-mobile-menu__join" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=gcLuqKOqrk2sm5o5i5IV5z3UtEad7LFKuTRbSEyY4zhUOFpUSFE5M0QzMUg0RDExRElSMlpEMUxLSC4u" target="_blank" rel="noopener noreferrer">Join us ↗</a>
+        </nav>
+      </div>
+      <main class="site-main" id="main">
+        <section class="page-hero manifesto-hero">
+          <p class="page-hero__label">§ 02 — Charter Document</p>
+          <h1><em>why we</em> <span>exist</span></h1>
+        </section>
+
+        <section class="page-section origin">
+          <div class="origin__pullquote">
+            The original Skunk Works built the SR-71 in <em>20 months</em> with a team of
+            <em>126 people</em> in a tent next to a wind tunnel. We are not building reconnaissance
+            aircraft. But we are stealing the operating model.
+          </div>
+          <p class="origin__body">
+            AI research, in its current institutional form, is optimized for the wrong things.
+            Publications over reproducibility. Demos over deployment. Funding rounds over working
+            code. The interesting problems sit in the gap between what big labs will commit to and
+            what universities are equipped to do.
+          </p>
+          <p class="origin__body">
+            Northeastern's AI Skunkworks occupies that gap. Founded in 2019. Small enough to move
+            fast. Serious enough to ship. Selective enough that being wrong is informative.
+            Affiliated with Humanitarians AI, the 501(c)(3) that handles the institutional and fiscal
+            infrastructure.
+          </p>
+        </section>
+
+        <section class="page-section" id="tenets">
+          <div class="page-section__head">
+            <p class="page-section__label">§ 02.A — Operating Tenets</p>
+            <h2>Eight rules we keep breaking productively.</h2>
+          </div>
+          <ol class="tenets tenets--full">
+            <li>
+              <strong>Ship the experiment, not the product.</strong>
+              <span
+                >A working prototype beats a perfect deck every time. The deck is for people who
+                couldn't tell the difference.</span
+              >
+            </li>
+            <li>
+              <strong>Compute is cheap. Conviction is rare.</strong>
+              <span
+                >Spend the former lavishly to test the latter. The most expensive thing is hesitation
+                on a good hunch.</span
+              >
+            </li>
+            <li>
+              <strong>Read the paper, then ignore it.</strong>
+              <span
+                >Reproduce from first principles, not from citations. Half of what's published is
+                wrong; the other half is right for the wrong reasons.</span
+              >
+            </li>
+            <li>
+              <strong>Small teams, short loops.</strong>
+              <span
+                >Two researchers and an engineer can outpace a department. Three engineers and a
+                researcher can outpace a directorate.</span
+              >
+            </li>
+            <li>
+              <strong>Disagree in private. Commit in public.</strong>
+              <span
+                >Then revise both, ruthlessly, on Friday. Consensus is a lagging indicator, not a
+                goal.</span
+              >
+            </li>
+            <li>
+              <strong>The bug is the discovery.</strong>
+              <span
+                >Anomalies are the only honest data your model will ever give you. Hunt them.</span
+              >
+            </li>
+            <li>
+              <strong>Taste is the moat.</strong>
+              <span
+                >Models commoditize. Benchmarks saturate. Compute equalizes. What scales is judgment
+                about what to build.</span
+              >
+            </li>
+            <li>
+              <strong>Publish the failure.</strong>
+              <span>Especially the expensive ones. The field is poorer for everyone's silence.</span>
+            </li>
+          </ol>
+        </section>
+
+        <section class="page-section irreducibles" id="irreducibles">
+          <div class="page-section__head">
+            <p class="page-section__label">§ 02.B — Irreducible Capacities</p>
+            <h2>What machines can't supply.</h2>
+            <p class="page-section__sub">
+              Every AI deployment failure is a judgment-layer failure. The algorithm was running; no
+              one was conducting it. These are the capacities we develop in skunks that no model
+              currently possesses.
+            </p>
+          </div>
+          <div class="irreducibles__grid">
+            <article class="irr-card">
+              <p class="irr-card__label">01 — BOTSPEAK / TOOL FLUENCY</p>
+              <h3>Operating the machines</h3>
+              <p>
+                Prompt engineering, output evaluation, knowing when to trust a result and when not
+                to. The operating layer. Necessary, not sufficient.
+              </p>
+            </article>
+            <article class="irr-card">
+              <p class="irr-card__label">02 — CAUSAL REASONING</p>
+              <h3>Why, not just what</h3>
+              <p>
+                AI finds correlations. Humans build causal models. Counterfactual thinking,
+                interventionist reasoning, and the 'why' questions statistical models cannot answer.
+              </p>
+            </article>
+            <article class="irr-card">
+              <p class="irr-card__label">03 — ETHICAL JUDGMENT</p>
+              <h3>Moral reasoning under uncertainty</h3>
+              <p>
+                Value pluralism, and the limits of rule-based ethics. Cannot be reduced to
+                optimization or alignment.
+              </p>
+            </article>
+            <article class="irr-card">
+              <p class="irr-card__label">04 — AIMAGINEERING</p>
+              <h3>Meaning, not just output</h3>
+              <p>
+                Generative AI produces outputs. Humans produce meaning. Creative process, aesthetic
+                judgment, conceptual blending, and the difference between novelty and originality.
+              </p>
+            </article>
+            <article class="irr-card">
+              <p class="irr-card__label">05 — EMBODIED MENTORSHIP</p>
+              <h3>Presence, improvisation, attunement</h3>
+              <p>
+                The embodied skills that make mentorship effective — none of which transfer to a
+                language model.
+              </p>
+            </article>
+            <article class="irr-card">
+              <p class="irr-card__label">06 — CONDUCTING</p>
+              <h3>Orchestrating, not playing</h3>
+              <p>
+                Plausibility auditing, problem formulation, tool orchestration, interpretive
+                judgment, executive integration. Conduct the orchestra; don't play every instrument.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-section manifesto-close">
+          <h2 class="manifesto-close__title">
+            Read this once. Argue with it. Then come build.
+          </h2>
+          <div class="manifesto-close__actions">
+            <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=gcLuqKOqrk2sm5o5i5IV5z3UtEad7LFKuTRbSEyY4zhUOFpUSFE5M0QzMUg0RDExRElSMlpEMUxLSC4u" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Join AI Skunkworks</a>
+            <a href="events.html#intake-terminal" class="btn">Open Intake</a>
+            <a href="projects.html" class="btn">View Operations</a>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <div class="site-footer__inner">
+          <div class="site-footer__grid">
+            <div class="site-footer__col site-footer__col--brand">
+              <div class="site-footer__brand">
+                <span class="brand-mark" aria-hidden="true"></span>
+                <div class="site-footer__brand-copy">
+                  <span class="site-footer__brand-name">AI Skunkworks</span>
+                  <p class="site-footer__tagline">Northeastern · est. 2019</p>
+                </div>
+              </div>
+            </div>
+            <div class="site-footer__col">
+              <h2 class="site-footer__col-title">Sections</h2>
+              <ul class="site-footer__list">
+                <li><a href="index.html">Index</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="manifesto.html">Manifesto</a></li>
+                <li>
+                  <a href="people.html">Crew</a>
+                  <ul class="site-footer__sublist">
+                    <li><a href="people.html#year-archives">Year archives</a></li>
+                    <li><a href="people.html#command">Team</a></li>
+                    <li><a href="people.html#partners">Partners</a></li>
+                    <li><a href="people.html#contact">Contact</a></li>
+                  </ul>
+                </li>
+                <li><a href="events.html">Events</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__col">
+              <h2 class="site-footer__col-title">Channels</h2>
+              <ul class="site-footer__list">
+                <li><a href="https://discord.gg/PGebZX3xU" target="_blank" rel="noopener noreferrer">Discord</a></li>
+                <li><a href="https://aiskunkworks.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></li>
+                <li><a href="https://www.linkedin.com/company/aiskunkworks/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="https://instagram.com/aiskunkworks" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://github.com/skunkworksneu" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__col">
+              <h2 class="site-footer__col-title">Contact</h2>
+              <ul class="site-footer__list">
+                <li><a href="mailto:aiskunkworks@northeastern.edu">aiskunkworks@northeastern.edu</a></li>
+                <li><a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=gcLuqKOqrk2sm5o5i5IV5z3UtEad7LFKuTRbSEyY4zhUOFpUSFE5M0QzMUg0RDExRElSMlpEMUxLSC4u" target="_blank" rel="noopener noreferrer">Membership form ↗</a></li>
+                <li><a href="events.html#intake-terminal">Intake terminal ↗</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__col">
+              <h2 class="site-footer__col-title">Legacy sites</h2>
+              <ul class="site-footer__list">
+                <li><a href="https://neu-ai-skunkworks.github.io" target="_blank" rel="noopener noreferrer">neu-ai-skunkworks.github.io</a></li>
+                <li><a href="https://alskunks.sites.northeastern.edu" target="_blank" rel="noopener noreferrer">alskunks.sites.northeastern.edu</a></li>
+                <li><a href="people.html#legacy-sites">About the archives</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="site-footer__strip">
+            <span>© 2026 AI Skunkworks · Northeastern</span>
+            <span>NO RIGHTS RESERVED · TRY TO COPY US</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="scripts/main.js" defer></script>
+  </body>
+</html>
