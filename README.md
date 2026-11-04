@@ -49,3 +49,7 @@ IBM Plex Sans for all text (headings and body), IBM Plex Mono only inside the in
 ## Joining
 
 "Join us" in the header, the home hero, the Crew page CTA and every footer link to the Microsoft Forms membership form.
+
+## Home hero twister
+
+`scripts/twister.js` (home page only) draws a spinning funnel of circuit rings and three skunks that spiral up it, each wearing smart goggles, an LED collar, a wrist watch, and a tail drone. Geometry and timing constants are at the top of the file; the look lives under "Twister animation" in `styles/pages-index.css`. It pauses when scrolled out of view or when the tab is hidden, and shows a still frame for visitors with "reduce motion" enabled.

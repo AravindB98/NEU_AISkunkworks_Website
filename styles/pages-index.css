@@ -5,26 +5,12 @@
 /* ——— Hero ——— */
 .index-hero h1.index-hero__title {
   font-family: var(--sans);
-  font-size: clamp(56px, 11vw, 160px);
+  font-size: clamp(52px, 9.5vw, 136px);
   font-weight: 700;
   line-height: 0.95;
   letter-spacing: -0.04em;
   color: var(--ink);
   margin: 0;
-}
-
-.index-hero__cursor {
-  color: var(--accent);
-  animation: index-cursor-blink 1.1s steps(1) infinite alternate;
-}
-
-@keyframes index-cursor-blink {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
 }
 
 .index-hero__tagline {
@@ -531,14 +517,138 @@
   }
 
   .index-hero h1.index-hero__title {
-    font-size: clamp(52px, 17vw, 96px);
+    font-size: clamp(44px, 13.5vw, 96px);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .index-hero__cursor,
-  .ops-grid__item--featured::after,
+    .ops-grid__item--featured::after,
   .marquee__track {
     animation: none;
   }
+}
+
+/* ——— Hero split: intro + twister ——— */
+.index-hero__split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.index-hero__split .index-hero__cta {
+  margin-top: var(--space-lg);
+}
+
+@media (max-width: 52rem) {
+  .index-hero__split {
+    grid-template-columns: 1fr;
+  }
+  .twister {
+    max-width: 26rem;
+    margin-inline: auto;
+  }
+}
+
+/* ——— Twister animation ——— */
+.twister {
+  margin: 0;
+  width: 100%;
+}
+
+.twister__svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.twister__shadow {
+  fill: rgba(var(--accent-rgb), 0.14);
+}
+
+.twister__ring {
+  fill: none;
+  stroke: var(--line-strong);
+  stroke-width: 1.4;
+  stroke-dasharray: 10 6 2 6;
+  stroke-linecap: round;
+  animation: twister-spin linear infinite;
+}
+
+.twister__ring--accent {
+  stroke: var(--accent);
+  stroke-width: 1.8;
+}
+
+.twister__ring--back {
+  opacity: 0.5;
+}
+
+@keyframes twister-spin {
+  to {
+    stroke-dashoffset: -96;
+  }
+}
+
+/* Skunk parts */
+.tk__fur { fill: var(--skunk-fur); }
+.tk__body { filter: var(--skunk-halo); }
+.tk__stripe { fill: none; stroke: var(--skunk-stripe); stroke-width: 1.7; stroke-linecap: round; }
+.tk__limb { stroke: var(--skunk-fur); stroke-width: 2.6; stroke-linecap: round; fill: none; }
+.tk__nose { fill: var(--accent); }
+
+.tk__goggle { fill: #3a3a3a; stroke: var(--accent); stroke-width: 0.5; }
+.tk__lens { fill: var(--signal); }
+.tk__glint { stroke: #ffffff; stroke-width: 0.6; stroke-linecap: round; }
+.tk__strap { fill: none; stroke: #3a3a3a; stroke-width: 1.2; stroke-linecap: round; }
+
+.tk__collar { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-linecap: round; }
+.tk__collar-led { fill: var(--signal); animation: tk-led 0.9s steps(2, jump-none) infinite; }
+.tk__collar-led--2 { animation-delay: -0.3s; }
+.tk__collar-led--3 { animation-delay: -0.6s; }
+
+.tk__watch-strap { fill: #3a3a3a; }
+.tk__watch-face { fill: var(--signal); animation: tk-watch 2s ease-in-out infinite; }
+
+.tk__pod { fill: #3a3a3a; stroke: var(--accent); stroke-width: 0.45; }
+.tk__pod-light { fill: var(--accent); animation: tk-led 0.6s steps(2, jump-none) infinite; }
+.tk__mast { stroke: #3a3a3a; stroke-width: 0.6; }
+.tk__rotor { stroke: var(--ink-dim); stroke-width: 0.7; stroke-linecap: round; }
+
+.tk__leg, .tk__tail, .tk__bob, .tk__rotor { transform-box: fill-box; }
+.tk__leg { transform-origin: 50% 0%; animation: tk-gallop 0.3s ease-in-out infinite alternate; animation-delay: var(--tk-delay, 0s); }
+.tk__leg--b { animation-direction: alternate-reverse; }
+.tk__bob { animation: tk-bob 0.15s ease-in-out infinite alternate; }
+.tk__tail { transform-origin: 100% 90%; animation: tk-tail 0.3s ease-in-out infinite alternate; }
+.tk__rotor { transform-origin: 50% 50%; animation: tk-rotor 0.12s linear infinite; }
+
+@keyframes tk-gallop { from { transform: rotate(-28deg); } to { transform: rotate(28deg); } }
+@keyframes tk-bob { from { transform: translateY(0); } to { transform: translateY(-1.3px); } }
+@keyframes tk-tail { from { transform: rotate(-6deg); } to { transform: rotate(8deg); } }
+@keyframes tk-rotor { 0% { transform: scaleX(1); } 50% { transform: scaleX(0.15); } 100% { transform: scaleX(1); } }
+@keyframes tk-led { 0% { opacity: 1; } 50% { opacity: 0.2; } }
+@keyframes tk-watch { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
+
+:root[data-theme="dark"] .tk__goggle,
+:root[data-theme="dark"] .tk__strap,
+:root[data-theme="dark"] .tk__watch-strap,
+:root[data-theme="dark"] .tk__pod,
+:root[data-theme="dark"] .tk__mast {
+  fill: #5a5a5a;
+}
+
+:root[data-theme="dark"] .tk__strap,
+:root[data-theme="dark"] .tk__mast {
+  fill: none;
+  stroke: #5a5a5a;
+}
+
+.twister__svg.is-still .twister__ring,
+.twister__svg.is-still .tk__leg,
+.twister__svg.is-still .tk__bob,
+.twister__svg.is-still .tk__tail,
+.twister__svg.is-still .tk__rotor,
+.twister__svg.is-still [class*="led"],
+.twister__svg.is-still .tk__watch-face {
+  animation: none;
 }
