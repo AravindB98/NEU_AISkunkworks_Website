@@ -8,6 +8,8 @@
 
 Est. 2019 · Revived January 6, 2026 · Affiliated with Humanitarians AI
 
+### 🌐 [aravindb98.github.io/NEU_AISkunkworks_Website](https://aravindb98.github.io/NEU_AISkunkworks_Website/)
+
 [Discord](https://discord.gg/PGebZX3xU) · [Substack](https://aiskunkworks.substack.com) · [LinkedIn](https://www.linkedin.com/company/aiskunkworks/) · [Instagram](https://instagram.com/aiskunkworks) · [GitHub](https://github.com/skunkworksneu) · [Join us](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=gcLuqKOqrk2sm5o5i5IV5z3UtEad7LFKuTRbSEyY4zhUOFpUSFE5M0QzMUg0RDExRElSMlpEMUxLSC4u)
 
 </div>
@@ -239,6 +241,7 @@ Members and collaborators are welcome to open issues and pull requests.
 
 ## Contact
 
+- **Website**: [aravindb98.github.io/NEU_AISkunkworks_Website](https://aravindb98.github.io/NEU_AISkunkworks_Website/)
 - **Email**: [aiskunkworks@northeastern.edu](mailto:aiskunkworks@northeastern.edu)
 - **Membership**: [Microsoft Forms application](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=gcLuqKOqrk2sm5o5i5IV5z3UtEad7LFKuTRbSEyY4zhUOFpUSFE5M0QzMUg0RDExRElSMlpEMUxLSC4u)
 - **Support our compute node**: [HuskyStarter campaign](https://huskystarter.northeastern.edu/campaigns/ai-skunkworks-dedicated-compute-node#/)
