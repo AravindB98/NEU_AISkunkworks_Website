@@ -8,7 +8,9 @@
 
 Est. 2019 · Revived January 6, 2026 · Affiliated with Humanitarians AI
 
-### 🌐 [aravindb98.github.io/NEU_AISkunkworks_Website](https://aravindb98.github.io/NEU_AISkunkworks_Website/)
+### 🌐 [skunks.ai](https://skunks.ai/)
+
+<sub>Originally launched on GitHub Pages at [aravindb98.github.io/NEU_AISkunkworks_Website](https://aravindb98.github.io/NEU_AISkunkworks_Website/)</sub>
 
 [Discord](https://discord.gg/PGebZX3xU) · [Substack](https://aiskunkworks.substack.com) · [LinkedIn](https://www.linkedin.com/company/aiskunkworks/) · [Instagram](https://instagram.com/aiskunkworks) · [GitHub](https://github.com/skunkworksneu) · [Join us](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=gcLuqKOqrk2sm5o5i5IV5z3UtEad7LFKuTRbSEyY4zhUOFpUSFE5M0QzMUg0RDExRElSMlpEMUxLSC4u)
 
@@ -18,7 +20,7 @@ Est. 2019 · Revived January 6, 2026 · Affiliated with Humanitarians AI
 
 ## The short version
 
-This repository is the public website for **AI Skunkworks**, Northeastern's graduate research and build unit for modern AI. It is a hand-built static site: plain HTML, CSS and vanilla JavaScript, with no framework, no bundler and no build step. Clone it, open `index.html`, and you are looking at production.
+This repository is the source of **[skunks.ai](https://skunks.ai/)**, the public website for **AI Skunkworks**, Northeastern's graduate research and build unit for modern AI. It is a hand-built static site: plain HTML, CSS and vanilla JavaScript, with no framework, no bundler and no build step. Clone it, open `index.html`, and you are looking at production.
 
 The site is designed like a classified field manual. Pages are numbered sections (`§ 01`, `§ 02`), projects are "files" with clearance tags, the crew page is an "institutional dossier", and the events page ends in a conversational intake terminal. Under the theatre is a carefully engineered front end: a token-based design system, a flash-free light/dark theme, a CSS-only animated mascot, and a canvas-free SVG animation that respects reduced-motion settings.
 
@@ -159,7 +161,7 @@ The site is built to be found by search engines and to be quoted accurately by A
 
 **When content changes**, update the matching description in the page's `<!-- SEO -->` block and bump `<lastmod>` in `sitemap.xml`. Team changes also go in the `Person` entries of `people.html` and in `llms.txt`.
 
-**If the site moves to a custom domain**, search and replace `https://aravindb98.github.io/NEU_AISkunkworks_Website/` across the repository, and change the `<base href>` in `404.html` to `/`. Note that `robots.txt` and `llms.txt` only take effect at the root of a domain, so they become fully active once the site is on its own domain or on `skunkworksneu.github.io`.
+**All absolute URLs use `https://skunks.ai/`.** If the domain ever changes, search and replace it across the repository. Because the site runs at the root of its own domain, `robots.txt` and `llms.txt` are served at `skunks.ai/robots.txt` and `skunks.ai/llms.txt`, where crawlers look for them.
 
 ---
 
@@ -216,13 +218,15 @@ Prefer Node? `npx serve .` works just as well. On Windows, use `python` instead 
 
 ## Deploying
 
-The site is ready for **GitHub Pages** as-is:
+### Production: skunks.ai
 
-1. Go to **Settings → Pages** in this repository.
-2. Under **Build and deployment**, choose **Deploy from a branch**, then `main` and `/ (root)`.
-3. Save. The site will be served at `https://aravindb98.github.io/NEU_AISkunkworks_Website/`.
+The live site is **[skunks.ai](https://skunks.ai/)**, hosted on Vercel. There is no build command and no output directory to configure: Vercel serves the files from the repository root exactly as they are.
 
-Because there is no build step, any static host (Netlify, Cloudflare Pages, Vercel, an S3 bucket) also works by pointing it at the repository root.
+### Point of origin: GitHub Pages
+
+The site was first built and published by [Aravind Balaji](https://github.com/AravindB98) from this repository on GitHub Pages, at [aravindb98.github.io/NEU_AISkunkworks_Website](https://aravindb98.github.io/NEU_AISkunkworks_Website/). That deployment is where the current site, its design system and its search setup took shape before moving to its own domain. It can still be served from **Settings → Pages** (`main`, `/ (root)`) as a mirror; canonical tags on every page point search engines to skunks.ai, so the two never compete.
+
+Because there is no build step, any static host (Netlify, Cloudflare Pages, an S3 bucket) also works by pointing it at the repository root.
 
 ---
 
@@ -265,7 +269,7 @@ Members and collaborators are welcome to open issues and pull requests.
 
 ## Contact
 
-- **Website**: [aravindb98.github.io/NEU_AISkunkworks_Website](https://aravindb98.github.io/NEU_AISkunkworks_Website/)
+- **Website**: [skunks.ai](https://skunks.ai/) (originally [aravindb98.github.io/NEU_AISkunkworks_Website](https://aravindb98.github.io/NEU_AISkunkworks_Website/))
 - **Email**: [aiskunkworks@northeastern.edu](mailto:aiskunkworks@northeastern.edu)
 - **Membership**: [Microsoft Forms application](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=gcLuqKOqrk2sm5o5i5IV5z3UtEad7LFKuTRbSEyY4zhUOFpUSFE5M0QzMUg0RDExRElSMlpEMUxLSC4u)
 - **Support our compute node**: [HuskyStarter campaign](https://huskystarter.northeastern.edu/campaigns/ai-skunkworks-dedicated-compute-node#/)

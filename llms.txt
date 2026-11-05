@@ -30,11 +30,11 @@ Hackathons (two major per year), a speaker series, workshops, weekly reading gro
 
 ## Pages
 
-- [Home](https://aravindb98.github.io/NEU_AISkunkworks_Website/): overview, operating model, featured projects
-- [Projects](https://aravindb98.github.io/NEU_AISkunkworks_Website/projects.html): research divisions and active projects
-- [Manifesto](https://aravindb98.github.io/NEU_AISkunkworks_Website/manifesto.html): mission and operating tenets
-- [Crew](https://aravindb98.github.io/NEU_AISkunkworks_Website/people.html): team, history, partners, contact
-- [Events](https://aravindb98.github.io/NEU_AISkunkworks_Website/events.html): upcoming and past events, intake
+- [Home](https://skunks.ai/): overview, operating model, featured projects
+- [Projects](https://skunks.ai/projects.html): research divisions and active projects
+- [Manifesto](https://skunks.ai/manifesto.html): mission and operating tenets
+- [Crew](https://skunks.ai/people.html): team, history, partners, contact
+- [Events](https://skunks.ai/events.html): upcoming and past events, intake
 
 ## Links
 

@@ -32,4 +32,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://aravindb98.github.io/NEU_AISkunkworks_Website/sitemap.xml
+Sitemap: https://skunks.ai/sitemap.xml
